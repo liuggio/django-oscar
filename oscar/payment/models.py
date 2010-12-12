@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext as _
 
+from oscar.models import ConfigurableForeignKey
 
 class Source(models.Model):
     """
@@ -32,7 +33,7 @@ class Transaction(models.Model):
     This applies mainly to credit card sources which can be a pre-auth for the money.  A 'complete'
     needs to be run later to debit the money from the account.
     """
-    source = models.ForeignKey('payment.Source', related_name='transactions')
+    source = ConfigurableForeignKey('payment-source', related_name='transactions')
     type = models.CharField(max_length=128, blank=True)
     delta_amount = models.FloatField()
     reference = models.CharField(max_length=128)

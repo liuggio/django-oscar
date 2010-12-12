@@ -98,7 +98,14 @@ INSTALLED_APPS = (
     'oscar.product',
     'oscar.basket',
     'oscar.offer',
+    # Enable the sample app to test overriding oscar's models
+    'sampleapp',
 )
+
+# Set up foreign key relations
+FOREIGN_KEYS = {
+    'payment-source': 'sampleapp.PaymentSource' 
+}
 
 # Local overrides
 try:
