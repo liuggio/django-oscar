@@ -20,7 +20,6 @@ class ConfigurableForeignKey(ForeignKey):
         Returns the appropriate foreign key string, either from
         the defaults or from the user configured settings
         """
-        print FOREIGN_KEYS
         if FOREIGN_KEYS.has_key(key):
             return FOREIGN_KEYS[key]
         elif DEFAULT_FOREIGN_KEYS.has_key(key):
