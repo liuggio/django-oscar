@@ -10,11 +10,14 @@
 {% block content %}
 
 <h3>Edit address</h3>
-<form action="{% url oscar-customer-address address.id %}" method="post">
+<form action="." method="post">
     {% csrf_token %}
-    <input type="hidden" name="action" value="save" />
+ 
+    
     {{ form.as_p }}
     <input type="submit" value="Save address" />
+    or
+    <a href="{% url customer:address-list %}">Cancel and return to address book</a>
 </form>
 
 {% endblock content %}

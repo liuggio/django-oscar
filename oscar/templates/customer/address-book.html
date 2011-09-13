@@ -14,18 +14,16 @@
     {% for address in addresses %}
     <li>
         {{ address.summary }}
-        <a href="{% url oscar-customer-address address.id %}">Edit</a> | 
-        <form action="{% url oscar-customer-address address.id %}" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="action" value="delete" />
-            <input type="submit" value="Delete" />
-        </form>
+        <a href="{% url customer:address-detail address.id %}">Edit</a> | 
+		<a href="{% url customer:address-delete address.id %}">Delete</a>
     </li>
     {% endfor %}
 </ul>
 {% else %}
 There are no addresses in your address book.
 {% endif %}
+
+<p><a href="{% url customer:address-create %}">Add a New Address</a></p>
 
 {% if page_obj %}
 <div class="pagination">

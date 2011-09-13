@@ -1,3 +1,4 @@
+==========
 Components
 ==========
 
@@ -8,4 +9,8 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   components/offers
    components/checkout
+   components/shipping
+   components/analytics
+   components/promotions
